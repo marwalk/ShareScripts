@@ -1,0 +1,13 @@
+#! /bin/bash
+# To get current WAN IP address, and save to file for future reference
+# rm myip
+if [ -f myip ];
+then
+rm myip
+fi
+#
+wget --secure-protocol=PFS http://www.cipherdyne.org/cgi-bin/myip
+cat myip
+cp -v myip myip.$(date +%g%m%d)
+cat myip.$(date +%g%m%d)
+#

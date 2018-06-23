@@ -1,0 +1,7 @@
+#! /bin/bash
+# To change permissions on a directory
+read -p "Enter path to directory to change its permissions: " PATHD
+read -p "Enter octal permissions to apply to that directory: " PERMD
+find ${PATHD} -type d -exec chmod -v ${PERMD} {} + | grep change
+#
+

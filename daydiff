@@ -1,0 +1,15 @@
+#!/bin/bash
+#
+# To get number of days between dates;
+# it will provide two dates either side of reference date
+read -p "Enter reference date as \"yyyy-mm-dd\" for day count \(today if Today\): " DAY
+read -p "Enter (positive) number of days for date either side of ref date: " DAYNUM
+#
+printf "$(date -d "${DAY} -${DAYNUM} days" +%F) \n"
+printf "$(date -d "${DAY} +${DAYNUM} days" +%F) \n"
+# printf "$(date -d "-${DAYNUM} days") \n"
+# printf "$(date -d "+${DAYNUM} days") \n"
+#
+# $(expr $(datediff today 2017-12-02) - 59) days.\n"
+#
+

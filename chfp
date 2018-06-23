@@ -1,0 +1,7 @@
+#! /bin/bash
+# To change permissions on specific files
+read -p "Enter path to directory with files to change permissions: " PATHF
+read -p "Enter octal permissions to apply to files in that directory: " PERMF
+find ${PATHF} -type f -exec chmod -v ${PERMF} {} + | grep change
+#
+

@@ -1,0 +1,17 @@
+#! /bin/bash
+# To take extra non-universal characters from filenames
+# different from convmv and supplemental to it
+ls -1 | grep -e [^A-Za-z0-9._+-] > ofil
+while read FILFED
+#FILFED=${FILFIX}
+do
+echo ${FILFED} > FILFIX
+# sed -i 's/[^A-Za-z0-9._-]/-/g' ffil
+sed -i 's/--//g' FILFIX
+sed -i 's/ /-/g' FILFIX
+sed -i 's/,/-/g' FILFIX
+sed -i 's/?/-/g' FILFIX
+# sed -i 's/--//g' ${FILFIX}
+# sed -i "s/ /-/g" ffil
+mv -Tv "${FILFED}" "$(cat FILFIX)"
+done < ofil

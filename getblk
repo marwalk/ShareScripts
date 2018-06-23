@@ -1,0 +1,5 @@
+#! /bin/bash
+# To get block device UUIDs and their mount points
+lsblk --list -f
+#
+

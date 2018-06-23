@@ -1,0 +1,6 @@
+#! /bin/bash
+# To show process without clutter or extra typing;
+# only argument needed is process name or number
+ps ax | grep ${1} | grep -v "bin/psx" | grep -v "grep ${1}"
+#
+

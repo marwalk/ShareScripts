@@ -1,0 +1,9 @@
+#! /bin/bash
+# Enter as argument filename of file to be converted from stereo to mono
+#echo "String 1 is ${1}"
+cp ${1} ${1}.bak
+sox ${1}.bak -c1 ${1}
+soxi ${1}
+normalize -a -20dBFS ${1}
+#
+

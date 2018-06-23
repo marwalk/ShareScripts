@@ -1,0 +1,9 @@
+#! /bin/bash
+# To move the latest file in Downloads to the current directory
+echo $(pwd) > curdir
+#
+ls -lrt /home/marwalk/Downloads | tail -n1 | grep $(echo $(date | awk -F" " '{print $2}')) | grep " $(echo $(date | awk -F" " '{print $3}')) " | awk -F" " '{print $9}' > /home/marwalk/prntmp
+#
+mv -v /home/marwalk/Downloads/$(cat /home/marwalk/prntmp) $(cat curdir)
+#
+

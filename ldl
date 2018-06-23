@@ -1,0 +1,5 @@
+#! /bin/bash
+# List Directories only, no files
+ls -ldrth --color='always' ${1}* | grep ^d | awk -F" " '{print $6 " " $7 " " $8 " " $5 " " $9 " " $10 " " $11 " " $12}'
+#
+

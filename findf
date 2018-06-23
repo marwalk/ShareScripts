@@ -1,0 +1,11 @@
+#! /bin/bash
+# To find files by partial filename (case insensitive)
+# Usage: Arguments are:
+# $1 == top level of folders to search
+# $2 == partial filename, case in-sensitive
+# $3 == optional whether to limit to files "f" or directories "d" or symbolic links "l"
+find $1 -iname \*$2\* -printf "~> %TY-%Tm-%Td %Ta %TH:%TM %y %s %p => %l \n" 2>/dev/null | sort | grep --color=always " $3 "
+# find $1 -iname \*$2\* -ls 2>/dev/null
+# | awk -F" " '{print $6 " " $7 " " $8 " " $5 " " $9 " " $10 " " $11 " " $12 " " $13 " " $14 " " $15 " " $16 " " $17 " " $18 " " $19 " " $20 " " $21}'
+#
+
