@@ -1,5 +1,5 @@
 #! /bin/bash
-# To list disk free of only actual /dev devices plus total
+# To list disk free space of only actual /dev devices plus total
 df -ha | grep --color=never ^\/dev ; df -h --total | tail -n1
 #
 

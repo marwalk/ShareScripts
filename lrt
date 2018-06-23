@@ -1,0 +1,5 @@
+#! /bin/bash
+# To list files sorted by date, with long form clutter removed
+ls -ldrth --color='always' ${1}* | awk -F" " '{print $6 " " $7 " " $8 " " $5 " " $9 " " $10 " " $11 " " $12 " " $13 " " $14 " " $15 " " $16 " " $17 " " $18 " " $19 " " $20 " " $21}'
+#
+

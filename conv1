@@ -1,4 +1,6 @@
 #! /bin/bash
+# To convert a stereo file to a mono file (due to 
+# Audacity sometimes exporting a mono track to stereo)
 # Enter as argument filename of file to be converted from stereo to mono
 #echo "String 1 is ${1}"
 cp ${1} ${1}.bak

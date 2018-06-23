@@ -1,5 +1,6 @@
 #! /bin/bash
-# To find files by partial filename (case insensitive)
+# To find files by partial filename (case insensitive, 
+# flexible arguments)
 # Usage: Arguments are:
 # $1 == top level of folders to search
 # $2 == partial filename, case in-sensitive
