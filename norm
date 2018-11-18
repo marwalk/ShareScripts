@@ -1,0 +1,10 @@
+#! /bin/bash
+#
+# echo "Be sure to run this from within the directory with the specific project\'s processed normalized audio files."
+# read -p "Enter processed/normalized file with \"output\" in filename: " OUTPUTFILE
+# normalize $OUTPUTFILE
+normalize -a -20dBFS $(cat nfile) &> norml.txt
+#
+grep "adjust" norml.txt
+#normalize --peak
+
