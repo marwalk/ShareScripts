@@ -1,0 +1,11 @@
+#! /bin/bash
+#
+normalize -a -60dBFS ${1} -n --no-progress &> norml.txt
+#
+printf "level        peak        file \n"
+#grep -A1 "level" norml.txt
+#normalize --peak
+#tail -1 norml.txt # | awk -F" " '{print $1 $2}'
+cat norml.txt | grep dBFS | awk -F" " '{print $1 " " $2 " " $4}'
+#
+
