@@ -1,0 +1,27 @@
+#!/bin/bash
+#
+echo "Be sure to run this from within the directory with the specific project\'s processed normalized audio files."
+read -p "Enter processed/normalized file with \"output\" in filename: " OUTPUTFILE
+read -p "Enter special identifier name, that will be pre-pended to the final filename: " PROJNAME
+OUTPUTLUFS="LUFS-${OUTPUTFILE}"
+# normalize -a -20dBFS $OUTPUTFILE
+# normalize --peak $OUTPUTFILE
+
+ffmpeg -i ${OUTPUTFILE} -filter:a loudnorm=I=-16:LRA=7:tp=-1 ${OUTPUTLUFS} # loudnorm=I=-16 for voice vice -23 default
+
+normalize --peak ${OUTPUTLUFS}
+
+MP3SUBMIT="${PROJNAME}-$(echo $OUTPUTFILE | awk -F. '{print $1}')"
+echo ${MP3SUBMIT}.mp3 > mfil
+sed -i 's/\-ed//g' mfil
+
+MP3SUBMITED=$(echo $(cat mfil))
+#
+ffmpeg -i ${OUTPUTLUFS} -ab 192000 -ar 44100 ${MP3SUBMITED}
+#
+ls -lrth
+#
+mediainfo ${MP3SUBMITED}
+#
+fnorm ${OUTPUTLUFS}
+#
