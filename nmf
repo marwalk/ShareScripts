@@ -1,0 +1,16 @@
+#! /bin/bash
+# To normalize a set of files using argument input at command.
+#
+ls -1 ${1}*.wav > filist
+#
+for DFILE in $(cat filist)
+do
+printf "======>\n"
+normalize -a -20dBFS ${DFILE} &> norml.txt
+#
+grep "adjust" norml.txt
+#
+fnorm ${DFILE}
+done
+#
+
