@@ -1,0 +1,6 @@
+#! /bin/bash
+# To rename a set of files using argument input at command.
+#
+ren -v "${1}-*.*" "${1}-#1-ed.wav"
+#
+
