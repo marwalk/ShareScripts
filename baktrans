@@ -1,0 +1,17 @@
+#! /bin/bash
+#
+printf "If a remote machine is on either end, you'll \n"
+printf "need to include the [address:] info for it, \n"
+printf "that also includes the username@ ahead of the address. \n"
+printf "If you're using a non-standard ssh port (you should), \n"
+printf "you'll need to edit that before completing execution, \n"
+printf "and be ready with the passphrase for your account or ssh key. \n \n"
+read -p "Enter source directory [address:] and full path: " SRCDIR
+read -p "Enter desitnation directory [address:] and full path: " DSTDIR
+#
+echo "SRCDIR is " ${SRCDIR}
+echo "DSTDIR is " ${DSTDIR}
+#
+rsync -aruvz -e 'ssh -p 22' --progress --delete ${SRCDIR} ${DSTDIR}
+#
+
