@@ -1,0 +1,14 @@
+#! /bin/bash
+# To peak normalize a file to a specified peak level.
+# Arguments are filename and peak normalization level.
+#
+read -p "Enter filename to peak normalize:  " PFIL
+read -p "Enter peak normalization level in dBFS:  " PLEV
+#
+cp ${PFIL} ${PFIL}000.wav
+rm ${PFIL}
+#
+sox --norm=${PLEV} ${PFIL}000.wav ${PFIL}
+#
+fnorm ${PFIL}
+#
